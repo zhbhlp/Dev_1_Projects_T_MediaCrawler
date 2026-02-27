@@ -32,6 +32,6 @@ XHS_SPECIFIED_NOTE_URL_LIST = [
 # Specify the creator URL list, which needs to carry xsec_token and xsec_source parameters.
 
 XHS_CREATOR_ID_LIST = [
-    "https://www.xiaohongshu.com/user/profile/5f58bd990000000001003753?xsec_token=ABYVg1evluJZZzpMX-VWzchxQ1qSNVW3r-jOEnKqMcgZw=&xsec_source=pc_search"
+    "https://www.xiaohongshu.com/user/profile/5ceb329a000000001802cd98?xsec_token=AB8RaN9e3Y9At7bQjpff726fGRsCZfTD0_7Ggi-TDyuYI=&xsec_source=pc_note"
     # ........................
 ]
