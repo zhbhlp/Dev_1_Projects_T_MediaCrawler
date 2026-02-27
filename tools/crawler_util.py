@@ -84,8 +84,11 @@ async def find_qrcode_img_from_canvas(page: Page, canvas_selector: str) -> str:
     return base64_image
 
 
+QR_CODE_SAVE_PATH = "/tmp/xhs_login_qrcode.png"
+
+
 def show_qrcode(qr_code) -> None:  # type: ignore
-    """parse base64 encode qrcode image and show it"""
+    """parse base64 encode qrcode image, save to file and show it"""
     if "," in qr_code:
         qr_code = qr_code.split(",")[1]
     qr_code = base64.b64decode(qr_code)
@@ -97,8 +100,18 @@ def show_qrcode(qr_code) -> None:  # type: ignore
     new_image.paste(image, (10, 10))
     draw = ImageDraw.Draw(new_image)
     draw.rectangle((0, 0, width + 19, height + 19), outline=(0, 0, 0), width=1)
-    del ImageShow.UnixViewer.options["save_all"]
-    new_image.show()
+
+    # Always save QR code to a well-known path for headless/remote access
+    new_image.save(QR_CODE_SAVE_PATH)
+    from . import utils as _utils
+    _utils.logger.info(f"[show_qrcode] QR code saved to {QR_CODE_SAVE_PATH}")
+
+    # Try to show in GUI; silently ignore if no display available (headless)
+    try:
+        del ImageShow.UnixViewer.options["save_all"]
+        new_image.show()
+    except Exception:
+        pass
 
 
 def get_user_agent() -> str:
