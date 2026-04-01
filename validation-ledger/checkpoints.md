@@ -1,0 +1,5 @@
+# 检查点
+
+| batch | checkpoint_type | status | command | result | evidence |
+| --- | --- | --- | --- | --- | --- |
+| g07-bootstrap | governance-skeleton | pass | `git -C /private/tmp/g07-media-crawler-governance-20260401 status --short --branch` `git -C /private/tmp/g07-media-crawler-governance-20260401 diff --check` `test -f /private/tmp/g07-media-crawler-governance-20260401/AGENTS.md` `test -f /private/tmp/g07-media-crawler-governance-20260401/CLAUDE.md` `test -f /private/tmp/g07-media-crawler-governance-20260401/PROJECT.md` `test -f /private/tmp/g07-media-crawler-governance-20260401/项目进度.md` `test -f /private/tmp/g07-media-crawler-governance-20260401/validation-ledger/current-focus.md` `test -f /private/tmp/g07-media-crawler-governance-20260401/validation-ledger/checkpoints.md` `test -f /private/tmp/g07-media-crawler-governance-20260401/validation-ledger/known-issues.md` `test -f /private/tmp/g07-media-crawler-governance-20260401/validation-ledger/smoke/README.md` | 骨架文件存在，`diff --check` 通过，当前树仍未提交 | `validation-ledger/evidence/2026-04-01-g07-mediacrawler-governance-bootstrap.md` |
